@@ -1,0 +1,18 @@
+<div class="block notice">
+  <h3>Simple Block</h3>
+  <div class="content">
+    <ul class="navigation">
+      <% Event.order("start_at DESC").limit(2).each do |event| %>
+        <li><%= link_to event.name + " on " + event.start_at.strftime("%d %a %b | %I:%M%p").to_s, event_path(event) %></li>
+      <% end %>
+    </ul>
+  </div>
+</div>
+<div class="block notice">
+  <h3>Places you may be interested in</h3>
+  <ul class="navigation">
+    <li><%= link_to "Events", events_path %></li>
+    <li><%= link_to "Calendar", calendar_path %></li>
+    <li><%= link_to "New Event", new_event_path %></li>
+  </ul>
+</div>
